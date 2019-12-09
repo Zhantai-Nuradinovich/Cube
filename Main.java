@@ -14,6 +14,8 @@ public class Main {
         face.print();
         face.rotate(90,0,0);
         face.print();
+        Cube cube = new Cube();
+        CubeFrame frame = new CubeFrame(cube);
     }
 }
 //
