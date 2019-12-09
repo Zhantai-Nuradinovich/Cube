@@ -20,9 +20,13 @@ public class Facet {
         System.out.println(" ");
     }
     public void rotate(double uX, double uY, double uZ){
-        vertex[0].rotate(uX, uY, uZ);
-        vertex[1].rotate(uX, uY, uZ);
-        vertex[2].rotate(uX, uY, uZ);
-        vertex[3].rotate(uX, uY, uZ);
+        for(int i = 0;i<vertex.length;i++){
+            vertex[i].rotate(uX, uY, uZ);
+        }
+    }
+    public void travel(double x, double y, double z){
+        for(int i = 0;i<vertex.length;i++){
+            vertex[i].travel(x, y, z);
+        }
     }
 }
