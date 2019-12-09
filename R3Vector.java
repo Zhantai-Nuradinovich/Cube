@@ -51,7 +51,7 @@ public class R3Vector {
         y = -(unX*Math.sin(Math.toRadians(u))+y*Math.cos(Math.toRadians(u)));
     }
     public void rotate(double uX, double uY, double uZ){
-        rotateOZ(uX);
+        rotateOX(uX);
         rotateOY(uY);
         rotateOZ(uZ);
     }
