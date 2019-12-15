@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Main {
     public static void main(String[] args){
         /*R3Vector a = new R3Vector(10, 0,0);
@@ -15,6 +17,10 @@ public class Main {
         face.rotate(90,0,0);
         face.print();
         Cube cube = new Cube();
+        cube.scale(100);
+        cube.rotate(130,130,130);
+        cube.travel(230,230,230);
+        //cube.travel(210,210,0);
         CubeFrame frame = new CubeFrame(cube);
     }
 }
