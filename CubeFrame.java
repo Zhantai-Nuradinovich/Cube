@@ -13,6 +13,6 @@ public class CubeFrame extends JFrame {
         this.setTitle("Я окно куба");
     }
     public void paint(Graphics g) {
-        
+        cube.draw(g);
     }
 }
