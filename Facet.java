@@ -1,5 +1,8 @@
+import java.awt.*;
+
 public class Facet {
-    private R3Vector[] vertex = new R3Vector[4];
+    protected static int i = 0;
+    public R3Vector[] vertex = new R3Vector[4];
     //Color color;
     public Facet(R3Vector a, R3Vector b, R3Vector c, R3Vector d){
         vertex[0] = a;
@@ -28,5 +31,41 @@ public class Facet {
         for(int i = 0;i<vertex.length;i++){
             vertex[i].travel(x, y, z);
         }
+    }
+    public double getModule(int i){
+        return Math.sqrt(Math.pow(vertex[i].x, 2)+Math.pow(vertex[i].y, 2)+Math.pow(vertex[i].z, 2));
+    }
+    public void draw(Graphics g){
+        g.setColor(Color.PINK);
+        //ХоУ нижняя и верхняя
+        if(i == 0 || i == 3){
+        g.drawLine((int)  (vertex[0].x), (int)  (vertex[0].y), (int)  (vertex[1].x),(int)  (vertex[1].y));
+        g.drawLine((int)  (vertex[1].x), (int)  (vertex[1].y), (int)  (vertex[2].x),(int)  (vertex[2].y));
+        g.drawLine((int)  (vertex[2].x), (int)  (vertex[2].y), (int)  (vertex[3].x),(int)  (vertex[3].y));
+        g.drawLine((int)  (vertex[3].x), (int)  (vertex[3].y), (int)  (vertex[0].x),(int)  (vertex[0].y));
+        i= i+1;
+        }
+        //ХоЗ нижняя и верхняя
+        else if(i == 1 || i == 4){
+            g.drawLine((int)  (vertex[0].x), (int)  (vertex[0].z), (int)  (vertex[1].x),(int)  (vertex[1].z));
+            g.drawLine((int)  (vertex[1].x), (int)  (vertex[1].z), (int)  (vertex[2].x),(int)  (vertex[2].z));
+            g.drawLine((int)  (vertex[2].x), (int)  (vertex[2].z), (int)  (vertex[3].x),(int)  (vertex[3].z));
+            g.drawLine((int)  (vertex[3].x), (int)  (vertex[3].z), (int)  (vertex[0].x),(int)  (vertex[0].z));
+            i= i+1;
+        }
+        //УоЗ нижняя и верхняя
+        else if(i == 2 || i == 5){
+            g.drawLine((int)  (vertex[0].y), (int)  (vertex[0].z), (int)  (vertex[1].y),(int)  (vertex[1].z));
+            g.drawLine((int)  (vertex[1].y), (int)  (vertex[1].z), (int)  (vertex[2].y),(int)  (vertex[2].z));
+            g.drawLine((int)  (vertex[2].y), (int)  (vertex[2].z), (int)  (vertex[3].y),(int)  (vertex[3].z));
+            g.drawLine((int)  (vertex[3].y), (int)  (vertex[3].z), (int)  (vertex[0].y),(int)  (vertex[0].z));
+            i= i+1;
+        }
+    }
+    public void scale(double k) {
+        vertex[0].scale(k);
+        vertex[1].scale(k);
+        vertex[2].scale(k);
+        vertex[3].scale(k);
     }
 }
