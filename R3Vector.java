@@ -55,4 +55,9 @@ public class R3Vector {
         rotateOY(uY);
         rotateOZ(uZ);
     }
+    public void scale(double k){
+        x *= k;
+        y *= k;
+        z *= k;
+    }
 }
