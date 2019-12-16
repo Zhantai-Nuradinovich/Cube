@@ -18,7 +18,7 @@ public class Main {
         face.print();
         Cube cube = new Cube();
         cube.scale(100);
-        cube.rotate(130,130,130);
+        cube.rotate(20,20,20);
         cube.travel(230,230,230);
         //cube.travel(210,210,0);
         CubeFrame frame = new CubeFrame(cube);
