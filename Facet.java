@@ -41,8 +41,11 @@ public class Facet {
     public void draw(Graphics g){
         g.setColor(Color.PINK);
         g.drawLine((int)(vertex[0].x), (int)(vertex[0].y), (int)(vertex[1].x), (int)(vertex[1].y));
+        g.setColor(Color.BLACK);
         g.drawLine((int)(vertex[1].x), (int)(vertex[1].y), (int)(vertex[2].x), (int)(vertex[2].y));
+        g.setColor(Color.BLUE);
         g.drawLine((int)(vertex[2].x), (int)(vertex[2].y), (int)(vertex[3].x), (int)(vertex[3].y));
+        g.setColor(Color.RED);
         g.drawLine((int)(vertex[3].x), (int)(vertex[3].y), (int)(vertex[0].x), (int)(vertex[0].y));
     }
 }
