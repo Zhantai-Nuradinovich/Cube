@@ -5,33 +5,23 @@ public class Cube {
     public Cube(){
         facets = new Facet[6];
         //нижняя грань ХоУ
-        //facets[0] = new Facet(new R3Vector(0,0,0), new R3Vector(1,0,0), // те, что сверху являются гранями против часовой
-                //new R3Vector(1,1,0), new R3Vector(0,1,0));
         facets[0] = new Facet(new R3Vector(0,0,0), new R3Vector(0,1,0),
                 new R3Vector(1,1,0), new R3Vector(1,0,0));
         //грань верхняя ХоЗ
-        //facets[1] = new Facet(new R3Vector(0,1,0), new R3Vector(0,1,1),
-            //    new R3Vector(1,1,1), new R3Vector(1,1,0));
         facets[1] = new Facet(new R3Vector(1,1,0), new R3Vector(0,1,0),
                 new R3Vector(0,1,1), new R3Vector(1,1,1));
         //грань верхняя УоЗ
-        //facets[2] = new Facet(new R3Vector(1,0,0), new R3Vector(1,0,1),
-              //  new R3Vector(1,1,1), new R3Vector(1,1,0));
+
         facets[2] = new Facet(new R3Vector(1,0,0), new R3Vector(1,1,0),
                 new R3Vector(1,1,1), new R3Vector(1,0,1));
         //грань верхняя ХоУ
-        //facets[3] = new Facet(new R3Vector(0,0,1), new R3Vector(0,1,1),
-              //  new R3Vector(1,1,1), new R3Vector(1,0,1));
+
         facets[3] = new Facet(new R3Vector(0,0,1), new R3Vector(1,0,1),
                 new R3Vector(1,1,1), new R3Vector(0,1,1));
         //грань нижняя ХоЗ
-        //facets[4] = new Facet(new R3Vector(0,0,1), new R3Vector(0,0,0),
-               // new R3Vector(1,0,0), new R3Vector(1,0,1));
         facets[4] = new Facet(new R3Vector(0,0,0), new R3Vector(1,0,0),
                 new R3Vector(1,0,1), new R3Vector(0,0,1));
         //грань нижняя УоЗ
-        //facets[5] = new Facet(new R3Vector(0,0,1), new R3Vector(0,0,0),
-               // new R3Vector(0,1,1), new R3Vector(0,1,0));
         facets[5] = new Facet(new R3Vector(0,1,0), new R3Vector(0,0,0),
                 new R3Vector(0,0,1), new R3Vector(0,1,1));
     }
