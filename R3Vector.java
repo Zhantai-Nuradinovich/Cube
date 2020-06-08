@@ -1,31 +1,25 @@
 public class R3Vector {
-    public double x, y, z;
+    private double x, y, z;
     //
     public R3Vector(double x, double y, double z) {
-        System.out.println("Я вектор ");
         this.x = x;
         this.y = y;
         this.z = z;
     }
     public void plus(R3Vector b) {
         R3Vector c = new R3Vector(x + b.x, y + b.y, z + b.z);
-        System.out.println("a(" + c.x + ", " + c.y + ", " + c.z + ")");
     }
     public void minus(R3Vector b) {
         R3Vector c = new R3Vector(x - b.x, y - b.y, z - b.z);
-        System.out.println("a(" + c.x + ", " + c.y + ", " + c.z + ")");
     }
     public void multiplication(int c) {
         R3Vector d = new R3Vector(x * c, y * c, z * c);
-        System.out.println("a(" + d.x + ", " + d.y + ", " + d.z + ")");
     }
     public void skal(R3Vector b) {
         double proizv = x * b.x + y * b.y + z * b.z;
-        System.out.println("Результат скалярного произведения = " + proizv);
     }
-    public void vect(R3Vector b) {
-        R3Vector с = new R3Vector(y * b.z - z * b.y, x * b.z - z * b.x, x * b.y - y * b.x);
-        System.out.println("с(" + с.x + ", " + с.y + ", " + с.z + ")");
+    public static R3Vector vect(R3Vector a, R3Vector b) {
+        return new R3Vector(a.y * b.z - a.z * b.y, a.x * b.z - a.z * b.x, a.x * b.y - a.y * b.x);
     }
     public void travel(double x, double y, double z) {
         this.x += x;
@@ -35,29 +29,46 @@ public class R3Vector {
     //Поворачивает вектор относительно оси Х
     public void rotateOX(double u) {
         double unY = y;
-        y = y*Math.cos(Math.toRadians(u))+z*Math.sin(Math.toRadians(u));
-        z = -(unY*Math.sin(Math.toRadians(u))+z*Math.cos(Math.toRadians(u)));
+        y = y*Math.cos(Math.toRadians(u))-z*Math.sin(Math.toRadians(u));
+        z = z*Math.cos(Math.toRadians(u))+unY*Math.sin(Math.toRadians(u));
     }
     //Поворачивает вектор относительно оси У
     public void rotateOY(double u) {
         double unX = x;
-        x = x*Math.cos(Math.toRadians(u))+z*Math.sin(Math.toRadians(u));
-        z = -(unX*Math.sin(Math.toRadians(u))+z*Math.cos(Math.toRadians(u)));
+        x = x*Math.cos(Math.toRadians(u))-z*Math.sin(Math.toRadians(u));
+        z = z*Math.cos(Math.toRadians(u))+unX*Math.sin(Math.toRadians(u));
     }
     //Поворачивает вектор относительно оси Z
     public void rotateOZ(double u) {
         double unX = x;
         x = x*Math.cos(Math.toRadians(u))-y*Math.sin(Math.toRadians(u));
-        y = -(unX*Math.sin(Math.toRadians(u))+y*Math.cos(Math.toRadians(u)));
+        y = unX*Math.sin(Math.toRadians(u))+y*Math.cos(Math.toRadians(u));
     }
+
     public void rotate(double uX, double uY, double uZ){
-        rotateOX(uX);
-        rotateOY(uY);
-        rotateOZ(uZ);
+        this.rotateOX(uX);
+        this.rotateOY(uY);
+        this.rotateOZ(uZ);
     }
     public void scale(double k){
         x *= k;
         y *= k;
         z *= k;
+    }
+
+    public static R3Vector toR3Vector(R3Vector begin, R3Vector end){
+        return new R3Vector(end.x - begin.x, end.y - begin.y, end.z - begin.z);
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getZ() {
+        return z;
     }
 }

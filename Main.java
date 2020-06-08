@@ -1,27 +1,28 @@
-import java.awt.*;
+import javax.swing.*;
 
-public class Main {
+public class Main extends JFrame {
+    private Cube cube;
+    private CubeController controller;
+    private CubeViewer viewer;
+
+    public Main(Cube cube){
+        this.cube = cube;
+        this.setSize(600,600);
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setTitle("Менин атым куб");
+
+        viewer = new CubeViewer(cube);
+        controller = new CubeController(cube, viewer);
+        getContentPane().add(controller);
+        setVisible(true);
+    }
+
     public static void main(String[] args){
-        /*R3Vector a = new R3Vector(10, 0,0);
-        a.rotateOY(90);
-        a.rotateOY(90);
-        a.rotateOY(90);
-        a.rotateOY(90);*/
-        R3Vector a = new R3Vector(0,0,0);
-        R3Vector b = new R3Vector(1,0,0);
-        R3Vector c = new R3Vector(1,1,0);
-        R3Vector d = new R3Vector(0,1,0);
-        //System.out.println(a.x+" "+a.y+" "+a.z );
-        Facet face = new Facet(a,b,c,d);
-        face.print();
-        face.rotate(90,0,0);
-        face.print();
         Cube cube = new Cube();
+        cube.travel(-0.5, -0.5, -0.5);
         cube.scale(100);
-        cube.rotate(20,20,20);
-        cube.travel(230,230,230);
-        //cube.travel(210,210,0);
-        CubeFrame frame = new CubeFrame(cube);
+        //cube.rotate(95, 0, 0);
+        Main frame = new Main(cube);
     }
 }
-//
